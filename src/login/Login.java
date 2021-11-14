@@ -19,6 +19,9 @@ import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.awt.Font;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 
 public class Login {
@@ -55,25 +58,25 @@ public class Login {
 
  private void initialize() {
   frameLoginForm = new JFrame();
-  frameLoginForm.setTitle("Login Form");
+  frameLoginForm.setTitle("Đăng nhập");
   frameLoginForm.setResizable(false);
-  frameLoginForm.setBounds(100, 100, 517, 343);
+  frameLoginForm.setBounds(200, 200, 517, 343);
   frameLoginForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   frameLoginForm.getContentPane().setLayout(null);
 
-  JLabel lblWelcome = new JLabel("Connect With Server\r\n");
+  JLabel lblWelcome = new JLabel("Kết nối với Server\r\n");
   lblWelcome.setForeground(UIManager.getColor("RadioButtonMenuItem.selectionBackground"));
-  lblWelcome.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-  lblWelcome.setBounds(27, 13, 312, 48);
+  lblWelcome.setFont(new Font("Segoe UI", Font.PLAIN, 24));
+  lblWelcome.setBounds(160, 13, 312, 48);
   frameLoginForm.getContentPane().add(lblWelcome);
 
   JLabel lblHostServer = new JLabel("IP Server");
-  lblHostServer.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+  lblHostServer.setFont(new Font("Segoe UI", Font.PLAIN, 16));
   lblHostServer.setBounds(47, 74, 86, 20);
   frameLoginForm.getContentPane().add(lblHostServer);
 
   JLabel lblPortServer = new JLabel("Port Server");
-  lblPortServer.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+  lblPortServer.setFont(new Font("Segoe UI", Font.PLAIN, 16));
   lblPortServer.setBounds(349, 77, 79, 14);
   frameLoginForm.getContentPane().add(lblPortServer);
 
@@ -89,7 +92,7 @@ public class Login {
   lblUserName.setFont(new Font("Segoe UI", Font.PLAIN, 13));
   lblUserName.setBounds(10, 134, 106, 38);
   frameLoginForm.getContentPane().add(lblUserName);
-  lblUserName.setIcon(new javax.swing.ImageIcon(Login.class.getResource("/image/user.png")));
+  lblUserName.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user.png")).getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 
   lblError = new JLabel("");
   lblError.setBounds(66, 287, 399, 20);
@@ -103,7 +106,7 @@ public class Login {
   txtUsername = new JTextField();
   txtUsername.setFont(new Font("Segoe UI", Font.PLAIN, 13));
   txtUsername.setColumns(10);
-  txtUsername.setBounds(128, 138, 366, 30);
+  txtUsername.setBounds(128, 138, 185, 30);
   frameLoginForm.getContentPane().add(txtUsername);
 
   btnLogin = new JButton("Login");

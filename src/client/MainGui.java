@@ -15,9 +15,11 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 
 import java.awt.Color;
+import java.awt.Image;
 import javax.swing.JList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class MainGui {
 
@@ -80,21 +82,22 @@ public class MainGui {
 	
 	private void initialize() {
 		frameMainGui = new JFrame();
-		frameMainGui.setTitle("Menu Chat");
+		frameMainGui.setTitle("Messeger");
 		frameMainGui.setResizable(false);
 		frameMainGui.setBounds(100, 100, 500, 560);
 		frameMainGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameMainGui.getContentPane().setLayout(null);
 
-		JLabel lblHello = new JLabel("Welcome");
+		JLabel lblHello = new JLabel("Xin chào");
 		lblHello.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		lblHello.setBounds(12, 82, 70, 16);
+		lblHello.setBounds(12, 82, 150, 30);
 		frameMainGui.getContentPane().add(lblHello);
+		lblHello.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/image/smile_big.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
 
 
-		JLabel lblFriendsName = new JLabel("Name Friend: ");
+		JLabel lblFriendsName = new JLabel("Tìm tên bạn bè: ");
 		lblFriendsName.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lblFriendsName.setBounds(12, 425, 110, 16);
+		lblFriendsName.setBounds(12, 425, 300, 16);
 		frameMainGui.getContentPane().add(lblFriendsName);
 		
 		txtNameFriend = new JTextField("");
@@ -135,7 +138,7 @@ public class MainGui {
 		btnChat.setBounds(20, 465, 129, 44);
 		frameMainGui.getContentPane().add(btnChat);
 		btnChat.setIcon(new javax.swing.ImageIcon(MainGui.class.getResource("/image/chat.png")));
-		btnExit = new JButton("Exit");
+		btnExit = new JButton("Thoát");
 		btnExit.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -154,18 +157,19 @@ public class MainGui {
 		btnExit.setIcon(new javax.swing.ImageIcon(MainGui.class.getResource("/image/stop.png")));
 		frameMainGui.getContentPane().add(btnExit);
 		
-		lblLogo = new JLabel("CONNECT WITH EVERYONE IN THE WORLD");
+		lblLogo = new JLabel("Danh sách bạn bè");
 		lblLogo.setForeground(new Color(0, 0, 205));
-		lblLogo.setIcon(new javax.swing.ImageIcon(MainGui.class.getResource("/image/connect.png")));
+		lblLogo.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/image/messenger.jfif")).getImage().getScaledInstance(39, 40, Image.SCALE_SMOOTH)));
 		lblLogo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblLogo.setBounds(51, 13, 413, 38);
+		lblLogo.setBounds(145, 13, 413, 38);
 		frameMainGui.getContentPane().add(lblLogo);
 		
-		lblActiveNow = new JLabel("List Account Active Now");
+		lblActiveNow = new JLabel("Danh sách bạn bè hiện tại");
 		lblActiveNow.setForeground(new Color(100, 149, 237));
 		lblActiveNow.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lblActiveNow.setBounds(10, 123, 156, 16);
+		lblActiveNow.setBounds(10, 123, 350, 30);
 		frameMainGui.getContentPane().add(lblActiveNow);
+		lblActiveNow.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/image/smile.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
 		
 		listActive = new JList<>(model);
 		listActive.setFont(new Font("Segoe UI", Font.PLAIN, 15));
@@ -176,13 +180,13 @@ public class MainGui {
 				txtNameFriend.setText(value);
 			}
 		});
-		listActive.setBounds(12, 152, 472, 251);
+		listActive.setBounds(12, 180, 472, 220);
 		frameMainGui.getContentPane().add(listActive);
 		
 		lblUsername = new JLabel(nameUser);
 		lblUsername.setForeground(Color.RED);
 		lblUsername.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblUsername.setBounds(75, 76, 156, 28);
+		lblUsername.setBounds(100, 83, 156, 28);
 		frameMainGui.getContentPane().add(lblUsername);
 	
 			
